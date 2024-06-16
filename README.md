@@ -1,12 +1,22 @@
 
-## Before running project:
-- visit `https://geocode.maps.co/` register and get a `api_key`
-- set api key in accessKey.js File
+# Project Description
 
+In this project, I used React JS to create an application integrated with GIS (Geographic Information System) that provides the address of a clicked location on the map.
 
-In the project directory, you can run:
-### `npm start`
+## Prerequisites
 
+Before running the project, follow these steps:
+
+1. Visit [Geocode Maps](https://geocode.maps.co/) and register to obtain an API key.
+2. Set your API key in the `accessKey.js` file.
+
+## Running the Project
+
+In the project directory, you can start the application by running:
+
+```bash
+npm start
+```
 
 ## Acknowledgements
 
