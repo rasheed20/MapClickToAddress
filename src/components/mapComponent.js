@@ -3,9 +3,8 @@ import '../App.css';
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import axios from 'axios'; 
+import api_key from './accessKey';
  
-
-
 
 function MapComponent() {
     const  [map,setMap] = useState(null);
@@ -13,11 +12,13 @@ function MapComponent() {
     let hasMap = false;
     const onClick = (event)=>{
       let {lat,lng} = event.latlng;
-      let url = `https://geocode.maps.co/reverse?lat=${lat}&lon=${lng}&api_key=6668f97ec1182496975128dhm6717ee`
+      let url = `https://geocode.maps.co/reverse?lat=${lat}&lon=${lng}&api_key=${api_key}`
       axios.get(url).then((res)=>{
         console.log(res.data.display_name);
         // alert(" address is: "+res.data.display_name)
         setAddress(res.data.display_name)
+      }).catch(err =>{
+        console.log(err);
       })
     }
   
