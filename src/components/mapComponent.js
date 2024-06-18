@@ -1,10 +1,11 @@
-import {  useEffect, useState } from 'react';
+import {   useEffect, useState } from 'react';
 import '../App.css';
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import axios from 'axios'; 
 import api_key from './accessKey';
- 
+import AddressBox from './AddressBox';
+import { addressContext } from './contexts'; 
 
 function MapComponent() {
     const  [map,setMap] = useState(null);
@@ -45,11 +46,15 @@ function MapComponent() {
     return (      
         <>
             <h2 id='addressHeader'> Address</h2>
-            <div id='addressBox'> 
+            {/* <div id='addressBox'> 
                 <div className='text'>
-                    {address} 
+                    {address}
                 </div> 
-            </div>
+            </div> */}
+            {/* <AddressBox address={address}></AddressBox> */}
+            <addressContext.Provider value={address}>
+              <AddressBox ></AddressBox>
+            </addressContext.Provider>
             <div id = "mapContainer">
                 <div id="mapInnerContainer">
                     <div id = "mapId" className='mapClass'></div>
